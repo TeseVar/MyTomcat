@@ -40,7 +40,7 @@ public class HttpServer {
                 response.setRequest(request);
 //                response.sendStaticResource();
                 String uri = request.getUri();
-                if(uri.startsWith("/servlet")){
+                if(uri.startsWith("/servlet/")){
                     ServletProcessor1 servletProcessor1 = new ServletProcessor1();
                     servletProcessor1.process(request,response);
                 }else{

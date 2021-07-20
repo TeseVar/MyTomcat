@@ -10,6 +10,11 @@ import java.net.URLClassLoader;
 import java.net.URLStreamHandler;
 
 public class ServletProcessor1 {
+    /**
+     * 跟据url传过来的类名加载相应的类
+     * @param request request
+     * @param response response
+     */
     public void process(Request request,Response response){
         String uri = request.getUri();
         String servletName = uri.substring(uri.lastIndexOf("/") + 1);
@@ -38,7 +43,8 @@ public class ServletProcessor1 {
 
         try {
             servlet = (Servlet) myClass.newInstance();
-            servlet.service(request,response);
+            //直接传递不安全,封装一层,避免调用request 和 response内部的方法
+            servlet.service(new RequestFacade(request),new ResponseFacade(response));
         }
         catch (Exception e) {
             e.printStackTrace();
