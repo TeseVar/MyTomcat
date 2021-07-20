@@ -1,8 +1,5 @@
 package edition2;
 
-import edition2.HttpServer;
-import edition2.Request;
-
 import javax.servlet.*;
 import java.io.*;
 import java.util.Locale;

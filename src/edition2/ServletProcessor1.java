@@ -1,8 +1,6 @@
 package edition2;
 
 import javax.servlet.Servlet;
-import javax.servlet.ServletRequest;
-import javax.servlet.ServletResponse;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -36,10 +34,10 @@ public class ServletProcessor1 {
             myClass = loader.loadClass(servletName);
         }
         catch (ClassNotFoundException e) {
-            System.out.println(e.toString());
+            e.printStackTrace();
         }
 
-        Servlet servlet = null;
+        Servlet servlet;
 
         try {
             servlet = (Servlet) myClass.newInstance();

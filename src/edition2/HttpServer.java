@@ -1,9 +1,5 @@
 package edition2;
 
-import edition2.Request;
-import edition2.Response;
-
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -38,7 +34,6 @@ public class HttpServer {
                 request.parse();
                 Response response = new Response(output);
                 response.setRequest(request);
-//                response.sendStaticResource();
                 String uri = request.getUri();
                 if(uri.startsWith("/servlet/")){
                     ServletProcessor1 servletProcessor1 = new ServletProcessor1();
